@@ -12,7 +12,31 @@ rating FLOAT,
 PRIMARY KEY(id_filmes)
 );
 
-DROP TABLE filmes;
+CREATE TABLE users(
+id_users INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(50),
+username VARCHAR(50),
+mail VARCHAR(100),
+password VARCHAR(50),
+PRIMARY KEY(id_users)
+);
+
+CREATE TABLE ratings(
+id_ratings INT NOT NULL AUTO_INCREMENT,
+rating_avg FLOAT,
+rating_user FLOAT,
+ratings_users_id INT NOT NULL,
+PRIMARY KEY(id_ratings)
+);
+
+CREATE TABLE ratings_users(
+id_ratings_users INT NOT NULL AUTO_INCREMENT,
+ratings_id INT NOT NULL,
+users_id INT NOT NULL,
+PRIMARY KEY(id_ratings_users),
+FOREIGN KEY (ratings_id) REFERENCES ratings (id_ratings),
+FOREIGN KEY (users_id) REFERENCES users (id_users)
+);
 
 INSERT INTO filmesWEB.filmes(nome, descr, nome_imagem, url_imagem, rating)
 VALUES ('Star Wars: Episódio III - A Vingança dos Sith',
