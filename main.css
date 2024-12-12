@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000034;
+}
+header {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    color: azure;
+    text-align: center;
+    font-size: 30px;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    color: azure;
+    text-align: center;
+}
+.movie {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #090854;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+.movie img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+.movie:hover {
+    transform: translateY(-5px);
+    transition: transform 0.2s;
+}
