@@ -1,4 +1,3 @@
-create schema filmes;
 create database filmesWEB;
 use filmesWEB;
 
@@ -21,20 +20,14 @@ password VARCHAR(50),
 PRIMARY KEY(id_users)
 );
 
-CREATE TABLE ratings(
-id_ratings INT NOT NULL AUTO_INCREMENT,
-rating_avg FLOAT,
-rating_user FLOAT,
-ratings_users_id INT NOT NULL,
-PRIMARY KEY(id_ratings)
-);
-
 CREATE TABLE ratings_users(
 id_ratings_users INT NOT NULL AUTO_INCREMENT,
-ratings_id INT NOT NULL,
+rating FLOAT,
+rating_user FLOAT,
+filmes_id INT NOT NULL,
 users_id INT NOT NULL,
 PRIMARY KEY(id_ratings_users),
-FOREIGN KEY (ratings_id) REFERENCES ratings (id_ratings),
+FOREIGN KEY (filmes_id) REFERENCES filmes (id_filmes),
 FOREIGN KEY (users_id) REFERENCES users (id_users)
 );
 
