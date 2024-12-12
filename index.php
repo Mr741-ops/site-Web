@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 // Configurações do banco de dados
 $host = 'localhost';
@@ -51,4 +52,29 @@ try {
         <?php endif; ?>
         </main>
 </body>
+=======
+<?php 
+    $host = "sql306.infinityfree.com";
+    $username = "if0_37806044";
+    $password = "8T75u2nNx5";
+    $database = "if0_37806044_XXX";
+?>
+
+<!DOCTYPE HTML>
+<html>
+    
+    <head>
+
+    </head>
+    
+    <body>
+        <main>
+            <?php 
+                foreach($filme on $flimes){
+
+                }
+            ?> 
+        </main>
+    </body>
+>>>>>>> e52b24da764beedc1eb09e3fb5935579bb60142f
 </html>
