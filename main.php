@@ -12,7 +12,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Consulta para obter os filmes
-    $query = "SELECT nome, url_imagem, rating FROM filmes";
+    $query = "SELECT id_filmes, nome, url_imagem FROM filmes";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
 
@@ -32,26 +32,27 @@ try {
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-
     <header>
-    <h1>Lista de Filmes</h1>
+    <h1>Filmes</h1>
     </header>
     <main>
         <?php if (count($filmes) > 0): ?>
             <?php foreach ($filmes as $filme): ?>
                 <div class="movie">
-                    <img src="<?php echo htmlspecialchars($filme['url_imagem']); ?>" alt="<?php echo htmlspecialchars($filme['nome']); ?>">
+                    <a href="filme.php?id=<?php echo htmlspecialchars($filme['id_filmes']); ?>">
+                        <img src="<?php echo htmlspecialchars($filme['url_imagem']); ?>" alt="<?php echo htmlspecialchars($filme['nome']); ?>">
+                    </a>
                     <div class="details">
                         <h2><?php echo htmlspecialchars($filme['nome']); ?></h2>
-                        <p>Rating: <?php echo htmlspecialchars(number_format($filme['rating'], 1)); ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
             <p>Nenhum filme encontrado.</p>
         <?php endif; ?>
-        </main>
+    </main>
 </body>
+</html>
 =======
 <?php 
     $host = "sql306.infinityfree.com";
