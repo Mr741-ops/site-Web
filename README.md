@@ -15,7 +15,7 @@ Este projeto é um site do estilo IMDB com um "twist", que é tem produtos limit
 
 ## Descrição do Projeto
 
-Feito em PHP
+Feito em PHP, HTML e CSS
 
 ## Tecnologias Usadas
 
