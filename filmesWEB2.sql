@@ -16,7 +16,7 @@ id_users INT NOT NULL AUTO_INCREMENT,
 nome VARCHAR(50),
 username VARCHAR(50),
 mail VARCHAR(100),
-password VARCHAR(50),
+password_user VARCHAR(50),
 PRIMARY KEY(id_users)
 );
 
@@ -73,6 +73,11 @@ VALUES ('Interstellar',
 'Imagens/Interstellar.jpg',
 0);
 
+INSERT INTO filmesweb.users(nome, username, mail, password_user)
+VALUES('Leonardo Silva', 'leofs14', 'leo@gmail.com', '1234');
+
 select * from filmesWEB.filmes;
+
+select * from users;
 
 grant all privileges on filmesWEB.* to 'root'@'localhost';
