@@ -73,6 +73,11 @@ VALUES ('Interstellar',
 'Imagens/Interstellar.jpg',
 0);
 
+INSERT INTO filmesweb.users(nome, username, mail, password_user)
+VALUES('Leonardo Silva', 'leofs14', 'leo@gmail.com', '1234');
+
 select * from filmesWEB.filmes;
+
+select * from users;
 
 grant all privileges on filmesWEB.* to 'root'@'localhost';
