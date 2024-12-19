@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 // Configurações do banco de dados
 $host = 'localhost';
@@ -21,6 +20,23 @@ try {
 } catch (PDOException $e) {
     die("Erro ao conectar ao banco de dados: " . $e->getMessage());
 }
+
+function escreverFilme( $filme) {
+    // Heredoc for the movie item
+    $html = <<<HTML
+        <div class="movie">
+            <a href="filme.php?id='{$filme['id_filmes']}">
+                <img src="{$filme['url_imagem']}" alt="{$filme['nome']}">
+            </a>
+            <div class="details">
+                <h2>{$filme['nome']}</h2>
+            </div>
+        </div>
+    HTML;
+
+    echo $html;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -29,53 +45,24 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmes</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-    <h1>Filmes</h1>
+        <h1>Filmes</h1>
     </header>
     <main>
-        <?php if (count($filmes) > 0): ?>
-            <?php foreach ($filmes as $filme): ?>
-                <div class="movie">
-                    <a href="filme.php?id=<?php echo htmlspecialchars($filme['id_filmes']); ?>">
-                        <img src="<?php echo htmlspecialchars($filme['url_imagem']); ?>" alt="<?php echo htmlspecialchars($filme['nome']); ?>">
-                    </a>
-                    <div class="details">
-                        <h2><?php echo htmlspecialchars($filme['nome']); ?></h2>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>Nenhum filme encontrado.</p>
-        <?php endif; ?>
+        <?php if (!empty($filmes)): 
+                foreach ($filmes as $filme): 
+                    if ($filme):
+                        // str_replace(["'"], ["\'"], $html)
+                        escreverFilme($filme);
+                    endif;
+                endforeach; 
+            else: 
+                echo "<p>Nenhum filme encontrado.</p>";
+            endif;
+        ?>    
     </main>
 </body>
-</html>
-=======
-<?php 
-    $host = "sql306.infinityfree.com";
-    $username = "if0_37806044";
-    $password = "8T75u2nNx5";
-    $database = "if0_37806044_XXX";
-?>
-
-<!DOCTYPE HTML>
-<html>
-    
-    <head>
-
-    </head>
-    
-    <body>
-        <main>
-            <?php 
-                foreach($filme on $flimes){
-
-                }
-            ?> 
-        </main>
-    </body>
->>>>>>> e52b24da764beedc1eb09e3fb5935579bb60142f
 </html>
