@@ -3,7 +3,7 @@
 $host = 'localhost';
 $dbname = 'filmesWEB';
 $username = 'root';
-$password = 'root123'; 
+$password = ''; 
 
 try {
     // Conexão com o banco de dados
@@ -25,7 +25,7 @@ function escreverFilme( $filme) {
     // Heredoc for the movie item
     $html = <<<HTML
         <div class="movie">
-            <a href="filme.php?id='{$filme['id_filmes']}">
+            <a href="filme.php?id={$filme['id_filmes']}">
                 <img src="{$filme['url_imagem']}" alt="{$filme['nome']}">
             </a>
             <div class="details">
@@ -45,17 +45,17 @@ function escreverFilme( $filme) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmes</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <header>
         <h1>Filmes</h1>
     </header>
     <main>
-        <?php if (!empty($filmes)): 
+        <?php 
+            if (!empty($filmes)): 
                 foreach ($filmes as $filme): 
                     if ($filme):
-                        // str_replace(["'"], ["\'"], $html)
                         escreverFilme($filme);
                     endif;
                 endforeach; 

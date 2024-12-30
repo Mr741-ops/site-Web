@@ -6,24 +6,52 @@ body {
 }
 
 header {
+    display: block;
     color: azure;
     padding: 15px;
 }
 
 main {
-    margin: 20px;
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
-    flex-direction: column;
+    color: azure;
 }
 
-img{
+.details h1{
+    display: inline-block;
+    justify-content: space-around;
+    align-items: flex-start;
+} 
+
+.details img{
+    align-content: center;
     width: 400px;
     height: auto;
 }
 
-.details p {
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.star-rating input:checked ~ label, 
+.star-rating label:hover,
+.star-rating label:hover ~ label{
+    color: gold;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    width: fit-content;
+
+}
+
+.ratings p {
     font-size: 18px;
     color: azure;
 }
