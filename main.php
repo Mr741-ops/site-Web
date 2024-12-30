@@ -5,6 +5,8 @@ $dbname = 'filmesWEB';
 $username = 'root';
 $password = 'root123'; 
 
+session_start();
+
 try {
     // Conexão com o banco de dados
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
@@ -19,6 +21,15 @@ try {
     $filmes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Erro ao conectar ao banco de dados: " . $e->getMessage());
+}
+
+$username = $_SESSION['username'];
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['username'])) {
+    // Redirecionar para a página de login se não estiver logado
+    header("Location: login.php");
+    exit;
 }
 
 function escreverFilme( $filme) {
