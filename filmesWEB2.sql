@@ -31,6 +31,15 @@ FOREIGN KEY (filmes_id) REFERENCES filmes (id_filmes),
 FOREIGN KEY (users_id) REFERENCES users (id_users)
 );
 
+CREATE TABLE produto_filmes(
+id_produto_filmes INT NOT NULL AUTO_INCREMENT,
+filme VARCHAR(50),
+estoque INT,
+filmes_id INT NOT NULL,
+PRIMARY KEY(id_produto_filmes),
+FOREIGN KEY (filmes_id) REFERENCES filmes (id_filmes)
+);
+
 INSERT INTO filmesWEB.filmes(nome, descr, nome_imagem, url_imagem, rating)
 VALUES ('Star Wars: Episódio III - A Vingança dos Sith',
 'As Guerras Clônicas estão em pleno andamento e Anakin Skywalker mantém um elo de lealdade com Palpatine, ao mesmo tempo em que luta para que seu casamento com Padmé Amidala não seja afetado por esta situação. Seduzido por promessas de poder, Anakin se aproxima cada vez mais de Darth Sidious até se tornar o temível Darth Vader. Juntos eles tramam um plano para aniquilar de uma vez por todas com os cavaleiros jedi.',
